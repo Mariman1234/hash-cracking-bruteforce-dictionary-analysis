@@ -67,14 +67,14 @@ La stringa dynamic="sha256($p.$s)" istruisce JtR:
 
 ## Analisi e Conclusioni
 
-* 1.    Confronto tra JtR e simulazione Python:
-        Sia la simulazione che l'uso di John the Ripper hanno successo nel crackare password deboli come quelle di alice, bob e charlie, convalidando la logica di verify_password_salted. Il modello teorico e l'attacco pratico sono risultati allineati.
+*   Confronto tra JtR e simulazione Python:
+    Sia la simulazione che l'uso di John the Ripper hanno successo nel crackare password deboli come quelle di alice, bob e charlie, convalidando la logica di verify_password_salted. Il modello teorico e l'attacco pratico sono risultati allineati.
 
-* 2.    Efficacia e limiti dell Salt:
-        Il salt è stato efficace contro gli attacchi Rainbow Table. Questo perchè ogni utente ha un salt unico, hash("password" + salt_di_alice) è diverso da hash("password" + salt_di_un_altro_utente).
+*   Efficacia e limiti dell Salt:
+    Il salt è stato efficace contro gli attacchi Rainbow Table. Questo perchè ogni utente ha un salt unico, hash("password" + salt_di_alice) è diverso da hash("password" + salt_di_un_altro_utente).
         
-        Tuttavia, il salt non rallenta l'attacco. Costringe JtR a ricalcolare l'hash per ogni parola del dizionario per ogni singolo utente, come dimostrato dai risultati (0 secondi), se l'algoritmo di hash è veloce (come SHA-256), questo ricalcolo è insignificante per un computer moderno.
+    Tuttavia, il salt non rallenta l'attacco. Costringe JtR a ricalcolare l'hash per ogni parola del dizionario per ogni singolo utente, come dimostrato dai risultati (0 secondi), se l'algoritmo di hash è veloce (come SHA-256), questo ricalcolo è insignificante per un computer moderno.
 
-* 3.    La conclusione:
-        Usare SHA-256 per le password è pericoloso perché è progettato per essere veloce. Un attaccante può testare miliardi di password al secondo.
-        La strategia di mitigazione corretta è utilizzare Key Derivation Functions (KDFs) come bcrypt, scrypt o Argon2. Questi algoritmi sono volutamente lenti perché introducono un "fattore di costo" (work factor) o un requisito di memoria, che può essere aumentato nel tempo. Questo rende gli attacchi brute-force e dictionary-based impraticabili, poiché il cracking di una singola password potrebbe richiedere ore o giorni, invece di millisecondi.
+*   La conclusione:
+    Usare SHA-256 per le password è pericoloso perché è progettato per essere veloce. Un attaccante può testare miliardi di password al secondo.
+    La strategia di mitigazione corretta è utilizzare Key Derivation Functions (KDFs) come bcrypt, scrypt o Argon2. Questi algoritmi sono volutamente lenti perché introducono un "fattore di costo" (work factor) o un requisito di memoria, che può essere aumentato nel tempo. Questo rende gli attacchi brute-force e dictionary-based impraticabili, poiché il cracking di una singola password potrebbe richiedere ore o giorni, invece di millisecondi.
