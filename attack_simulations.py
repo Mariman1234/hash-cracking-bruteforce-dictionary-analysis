@@ -45,7 +45,7 @@ def run_dictionary_attack(hashed_users_to_attack, dictionary_file):
     hashed_users_to_attack: Lista di {'username', 'hash', 'salt'}
     dictionary_file: Percorso al file del dizionario
     """
-    print(f"\nAvvio attacco Dictionary-Based usando '{dictionary_file}'...")
+    print(f"\nAvvio attacco Dictionary-Based usando '{dictionary_file}'")
     found_passwords = {}
     start_time = time.time()
 
