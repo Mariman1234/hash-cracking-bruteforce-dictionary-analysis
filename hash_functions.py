@@ -33,18 +33,6 @@ def verify_password_salted(password, stored_hash, stored_salt):
     hashed_input_password, _ = hash_password_salted(password, stored_salt)
     return hashed_input_password == stored_hash
 
-# Esempio di funzione di hash molto semplificata (solo a scopo didattico, NON sicura)
-def simple_xor_hash(text):
-    """
-    Una funzione di hash molto semplice basata su XOR per dimostrazione.
-    Funzioni come questa sono facili da invertire e soggette a collisioni
-    """
-    hash_value = 0
-    for char in text:
-        hash_value ^= ord(char)
-        hash_value = (hash_value * 31) & 0xFFFFFFFF  # Moltiplicazione e maschera per tenere il valore gestibile
-    return hex(hash_value)
-
 if __name__ == "__main__":
     # Esempio di utilizzo delle funzioni di hash
     pwd1 = "password123"
@@ -59,8 +47,3 @@ if __name__ == "__main__":
     print(f"\nPassword da hasare: '{pwd2}'")
     h2, s2 = hash_password_salted(pwd2)
     print(f"Hash con salt: {h2}, Salt: {s2}")
-
-    print("\nEsempio di hash semplice (solo didattico):")
-    print(f"'{pwd1}' -> {simple_xor_hash(pwd1)}")
-    print(f"'hello' -> {simple_xor_hash('hello')}")
-    print(f"'world' -> {simple_xor_hash('world')}")

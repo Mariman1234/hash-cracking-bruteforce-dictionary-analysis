@@ -17,7 +17,7 @@ def create_hashed_passwords_file(filename="data/users.txt"):
         ("diana", "MySuperSecureP@ssw0rd!2025"),
         ("eve", "iloveunicorns"),
         ("frank", "footballmania"),
-        ("grace", "Pa$$w0rd"), # Password debole ma con caratteri speciali
+        ("grace", "Pa$$w0rd"),
         ("helen", "LongAndComplexPasswordWithManyWordsAndNumbers12345")
     ]
 
