@@ -37,12 +37,15 @@ Il file data/jtr_input.txt generato dal programma è già in un formato che John
 I dati sono scritti come username:hash$salt. John the Ripper è in grado di parsare questo formato e riconoscere il salt.
 
 Il comando utilizzato per l'attacco a dizionario è:
+
 .\john.exe --wordlist=dictionary.txt --format=dynamic="sha256($p.$s)" jtr_input.txt
 
 Il comando utilizzato per l'attacco brute force è:
+
 .\john.exe --mask=?d?d?d?d?d?d --format=dynamic="sha256($p.$s)" jtr_input.txt
 
 Per visualizzare le password crackate il comando è:
+
 .\john.exe --show --format=dynamic="sha256($p.$s)" jtr_input.txt
 
 La stringa dynamic="sha256($p.$s)" istruisce JtR:
