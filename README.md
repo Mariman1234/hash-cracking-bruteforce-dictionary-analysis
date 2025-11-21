@@ -16,7 +16,7 @@ Questo progetto mira a fornire una comprensione pratica delle funzioni di hash c
 Il progetto è strutturato nei seguenti moduli Python:
 
 * main.py: Il punto di ingresso del programma, che coordina la generazione degli hash e l'esecuzione delle simulazioni di attacco.
-* hash_functions.py: Contiene l'implementazione della funzione di hashing con salt (utilizzando SHA256) e una funzione di verifica della password. Include anche un esempio di funzione di hash molto semplificata a scopo didattico.
+* hash_functions.py: Contiene l'implementazione della funzione di hashing con salt (utilizzando SHA256) e una funzione di verifica della password.
 * password_manager.py: Si occupa della creazione di un file contenente username e hash di password (simulando un database utente) e del caricamento di questi dati.
 * attack_simulations.py: Implementa le logiche per gli attacchi di tipo brute-force e dictionary-based.
 * data/: Una directory per contenere i file di input/output, come il file degli hash degli utenti (users.txt), il dizionario per gli attacchi (dictionary.txt) e il file da dare in input a John the Ripper (jtr_input.txt)
